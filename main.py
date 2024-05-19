@@ -6,6 +6,7 @@ from ball import Ball
 import time
 from Score_boad import ScoreBoard
 
+#checked with git
 
 screen = Screen()
 screen.setup(800, 600)
