@@ -1,20 +1,22 @@
-from turtle import Turtle
+from turtle import Turtle, Screen
 
-class Paddler(Turtle):
 
-    def __init__(self,position):
+class Paddlers(Turtle):
+    def __init__(self, position):
         super().__init__()
+        """setting up element on screen"""
         self.shape("square")
         self.shapesize(5, 1)
-        self.color("yellow")
+        self.color("white")
         self.penup()
         self.goto(position)
 
-    def up(self):
+    def go_up(self):
+        """xcor/ycor represents the current position of element"""
         new_y = self.ycor() + 20
         self.goto(self.xcor(), new_y)
 
-    def down(self):
+    def go_down(self):
+        """xcor/ycor represents the current position of element"""
         new_y = self.ycor() - 20
         self.goto(self.xcor(), new_y)
-

@@ -1,43 +1,30 @@
-from turtle import Turtle
+from turtle import Turtle, Screen
+
 
 class Ball(Turtle):
-
     def __init__(self):
         super().__init__()
         self.shape("circle")
-        self.color("red")
+        self.color("white")
         self.penup()
-        self.x_original = 10
-        self.y_original = 10
+        self.x_move = 10
+        self.y_move = 10
+        #todo increase ball speed every time it hits paddle
         self.ball_speed = 0.1
 
-
-
-    def move(self):
-        x = self.xcor() + self.x_original
-
-        y = self.ycor() + self.y_original
-        # print(f"(x,y)={self.xcor()}{self.ycor()}")
-        # print(f"y_original{self.y_original}")
-        self.goto(x, y)
-        # print(f" ball at {self.xcor()} and {self.ycor()}")
+    def ball_movement(self):
+        new_x = self.xcor() + self.x_move
+        new_y = self.ycor() + self.y_move
+        self.goto(new_x,new_y)
 
     def bounce_y(self):
-        self.y_original *= -1
-
+        self.y_move = self.y_move * -1
 
     def bounce_x(self):
-        self.x_original *= -1
+        self.x_move = self.x_move * -1
         self.ball_speed *= 0.9
-        print(self.ball_speed)
 
-    def reset_position(self):
+    def reset(self):
         self.goto(0,0)
         self.ball_speed = 0.1
         self.bounce_x()
-
-        print(self.ball_speed)
-
-
-
-
